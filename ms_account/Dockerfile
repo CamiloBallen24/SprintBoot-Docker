@@ -11,7 +11,4 @@ ARG JAR_FILE=./target/*.jar
 
 RUN mkdir -p /apps
 COPY ${JAR_FILE} /apps/app.jar
-COPY ./entrypoint.sh /apps/entrypoint.sh
-
-RUN chmod +x /apps/entrypoint.sh
-CMD ["/apps/entrypoint.sh"]
+ENTRYPOINT ["java","-jar","/app.jar"]
